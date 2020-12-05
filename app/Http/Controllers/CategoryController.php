@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -9,12 +10,14 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\View\View
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('categories.index',compact('categories'));
     }
+
 
     /**
      * Show the form for creating a new resource.
